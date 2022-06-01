@@ -1,0 +1,8 @@
+/dataset/data/*
+/dataset/data_cervix93_zstacks_3.pickle
+/dataset/data_cervix93_zstacks_5.pickle
+/dataset/data_cervix93_zstacks_7.pickle
+/dataset/data_cervix93_zstacks_9.pickle
+__pycache__/
+results/*.pth
+test_images_for_EDOF
