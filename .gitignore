@@ -5,4 +5,4 @@
 /dataset/data_cervix93_zstacks_9.pickle
 __pycache__/
 results/*.pth
-test_images_for_EDOF
+test_images_for_EDOF/
