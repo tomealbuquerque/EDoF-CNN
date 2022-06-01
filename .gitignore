@@ -4,5 +4,7 @@
 /dataset/data_cervix93_zstacks_7.pickle
 /dataset/data_cervix93_zstacks_9.pickle
 __pycache__/
-results/*
+results/Baseline_results_without_TVL/
+results/bright_contrast_correction/
+results/with_TVL/
 test_images_for_EDOF/
