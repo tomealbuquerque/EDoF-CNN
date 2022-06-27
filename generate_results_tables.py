@@ -8,15 +8,15 @@ Created on Sat May 28 23:48:12 2022
 import numpy as np
 
 # "EDOF_CNN_3D"
-for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_modified"]):
+for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_fast"]):
 
     for s in ([3, 5, 7, 9]):
         mse=[]
         rmse=[]
         ssim=[]
         pnsr=[]
-        for i in range(3):
-            text_file = open("results\\dataset-cervix93-image_size-640-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-75-batchsize-2-lr-0.001-cudan-1.txt", "r")
+        for i in range(5):
+            text_file = open("results_server\\dataset-cervix93-image_size-640-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-200-batchsize-6-lr-0.001-cudan-1.txt", "r")
             lines = text_file.readlines()
             mse.append(float(lines[3].split(":")[1]))
             rmse.append(float(lines[4].split(":")[1]))

@@ -15,15 +15,21 @@ mae = nn.L1Loss()
 ssim_loss = pytorch_ssim.SSIM()
 l1 = nn.L1Loss(reduction='sum')
 
+from torch import nn
+import torch
+from piq import TVLoss
+
+lossTV = TVLoss()
+
 def tv_loss(c):
     x = c[:,:,1:,:] - c[:,:,:-1,:]
     y = c[:,:,:,1:] - c[:,:,:,:-1]
     loss = torch.sum(torch.abs(x)) + torch.sum(torch.abs(y))
     return loss
 
-class EDOF_CNN_modified(nn.Module):    
+class EDOF_CNN_fast(nn.Module):    
     def __init__(self):        
-        super(EDOF_CNN_modified, self).__init__()        
+        super(EDOF_CNN_fast, self).__init__()        
         self.encoder = nn.Sequential(    
             ConvLayer(1, 32, 3, 1),
             ConvLayer(32, 64, 3, 2))

@@ -11,10 +11,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', choices=['cervix93'], default='cervix93')
 parser.add_argument('--image_size', choices=[640], default=640)
 parser.add_argument('--method', choices=[
-    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_modified'], default='EDOF_CNN_modified')
+    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast'], default='EDOF_CNN_fast')
 parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=7)
-parser.add_argument('--fold', type=int, choices=range(3),default=1)
-parser.add_argument('--epochs', type=int, default=75)
+parser.add_argument('--fold', type=int, choices=range(3),default=0)
+parser.add_argument('--epochs', type=int, default=200)
 parser.add_argument('--batchsize', type=int, default=2)
 parser.add_argument('--lr', type=float, default=1e-3)
 parser.add_argument('--cudan', type=int, default=1)
@@ -32,7 +32,6 @@ from tqdm import tqdm
 from PIL import Image
 
 device = torch.device('cuda:'+str(args.cudan) if torch.cuda.is_available() else 'cpu')
-
 
 
 tr_ds = dataset.Dataset('train', dataset.aug_transforms, args.dataset, args.Z, args.fold)
@@ -62,7 +61,7 @@ def view_images(epochv):
     from matplotlib import cm
     
     for i in range(3):
-        if args.epochs==75:
+        if args.epochs==200:
             stack = stacks[i]
             for s in range(args.Z):
                 stack0 = Image.fromarray(stack[s][0,0,:,:]* 255)
@@ -79,12 +78,12 @@ def view_images(epochv):
         if img.mode != 'RGB':
             img = img.convert('RGB')
         # img.save('image/teste'+str(i)+'_epoch_'+str(epochv)+'.png')
-        img.save('teste'+str(i)+'.png')
+        img.save('PRED_'+str(i)+'.png')
         # imgt = Image.fromarray(np.uint8(xt*255), 'RGB')
         imgt = Image.fromarray(xt* 255)
         if imgt.mode != 'RGB':
             imgt = imgt.convert('RGB')
-        imgt.save('teste_true'+str(i)+'.png')
+        imgt.save('GT_'+str(i)+'.png')
 
 
 
@@ -129,7 +128,7 @@ def train(tr, val, epochs=args.epochs, verbose=True):
             print(out)
         scheduler.step(avg_loss)
         
-        # view_images(epoch)
+        view_images(epoch)
 
 prefix = '-'.join(f'{k}-{v}' for k, v in vars(args).items())
 
@@ -140,15 +139,14 @@ elif args.method=='EDOF_CNN_3D':
     model = models.EDOF_CNN_3D(args.Z)
 elif args.method=='EDOF_CNN_backbone':
     model = models.EDOF_CNN_backbone()
-elif args.method=='EDOF_CNN_modified':
-    model = models.EDOF_CNN_modified()
+elif args.method=='EDOF_CNN_fast':
+    model = models.EDOF_CNN_fast()
 else: 
     model = models.EDOF_CNN_concat()
 
 
 
-
-model.load_state_dict(torch.load('results\\Baseline_results_without_TVL\\'+str(prefix)+'.pth'))
+# model.load_state_dict(torch.load('results\\Baseline_results_without_TVL\\'+str(prefix)+'.pth'))
 model = model.to(device)
 
 
@@ -157,7 +155,7 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, verbose=True,patience=5)
 train(tr, ts)
 
 
-# torch.save(model.state_dict(), 'results\\'+str(prefix)+'.pth')
+torch.save(model.state_dict(), 'results\\'+str(prefix)+'.pth')
 
    
 #print some metrics 

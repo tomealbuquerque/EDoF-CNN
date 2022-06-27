@@ -9,7 +9,7 @@ Y-> Y_EDF (for each group of X_stacks)
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=9)
-parser.add_argument('--folds', type=int, choices=range(10),default=3)
+parser.add_argument('--folds', type=int, choices=range(5),default=5)
 parser.add_argument('--img_size', type=int, choices=[224,512,640,960],default=640)
 args = parser.parse_args()
 
