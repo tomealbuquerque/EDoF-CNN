@@ -8,7 +8,7 @@ Y-> Y_EDF (for each group of X_stacks)
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=9)
+parser.add_argument('--Z', choices=[9], type=int, default=9)
 parser.add_argument('--folds', type=int, choices=range(5),default=5)
 parser.add_argument('--img_size', type=int, choices=[224,512,640,960],default=640)
 args = parser.parse_args()
@@ -68,4 +68,4 @@ state = np.random.RandomState(1234)
 kfold = KFold(args.folds, shuffle=True, random_state=state)
 folds = [{'train': (X[tr], Y[tr]), 'test': (X[ts], Y[ts])} 
     for tr, ts in kfold.split(X, Y)]
-pickle.dump(folds, open(f'data_cervix93_zstacks_'+str(args.Z)+'.pickle', 'wb'))
+pickle.dump(folds, open(f'data_cervix93_zstacks.pickle', 'wb'))

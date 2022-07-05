@@ -8,16 +8,17 @@ Created on Wed Apr 20 10:24:27 2022
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', choices=['cervix93'], default='cervix93')
-parser.add_argument('--image_size', choices=[640], default=640)
+parser.add_argument('--dataset', choices=['cervix93','fraunhofer'], default='fraunhofer')
+parser.add_argument('--image_size', choices=[512,640], default=512)
 parser.add_argument('--method', choices=[
-    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast'], default='EDOF_CNN_fast')
-parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=7)
-parser.add_argument('--fold', type=int, choices=range(3),default=0)
+    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB'], default='EDOF_CNN_max')
+parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=5)
+parser.add_argument('--fold', type=int, choices=range(5),default=1)
 parser.add_argument('--epochs', type=int, default=200)
-parser.add_argument('--batchsize', type=int, default=2)
+parser.add_argument('--batchsize', type=int, default=4)
 parser.add_argument('--lr', type=float, default=1e-3)
 parser.add_argument('--cudan', type=int, default=1)
+parser.add_argument('--image_channels', choices=['rgb','grayscale'], default='grayscale')
 args = parser.parse_args()
 
 
@@ -33,10 +34,20 @@ from PIL import Image
 
 device = torch.device('cuda:'+str(args.cudan) if torch.cuda.is_available() else 'cpu')
 
+#define transforms if rgb or not
+if args.image_channels=='rgb':
+    train_transform=dataset.aug_transforms_rgb
+    test_transform=dataset.val_transforms_rgb
+else:
+    train_transform=dataset.aug_transforms
+    test_transform=dataset.val_transforms
 
-tr_ds = dataset.Dataset('train', dataset.aug_transforms, args.dataset, args.Z, args.fold)
+
+############################# data loaders #######################################
+
+tr_ds = dataset.Dataset('train', train_transform, args.dataset, args.Z, args.fold)
 tr = DataLoader(tr_ds, args.batchsize, True,  pin_memory=True)
-ts_ds = dataset.Dataset('test', dataset.val_transforms, args.dataset, args.Z, args.fold)
+ts_ds = dataset.Dataset('test', test_transform, args.dataset, args.Z, args.fold)
 ts = DataLoader(ts_ds, args.batchsize,False,  pin_memory=True)
 
 #to view images
@@ -141,6 +152,8 @@ elif args.method=='EDOF_CNN_backbone':
     model = models.EDOF_CNN_backbone()
 elif args.method=='EDOF_CNN_fast':
     model = models.EDOF_CNN_fast()
+elif args.method=='EDOF_CNN_RGB':
+    model = models.EDOF_CNN_RGB()
 else: 
     model = models.EDOF_CNN_concat()
 

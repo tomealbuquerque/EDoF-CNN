@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 from torchgeometry.losses import DiceLoss, ssim
 from utils import ConvLayer, ResidualLayer, DeconvLayer
 from einops import rearrange
-import pytorch_ssim
+from utils_files import pytorch_ssim
 import kornia.losses
 
 
@@ -26,6 +26,12 @@ def tv_loss(c):
     y = c[:,:,:,1:] - c[:,:,:,:-1]
     loss = torch.sum(torch.abs(x)) + torch.sum(torch.abs(y))
     return loss
+
+def compute_total_variation_loss(img, weight):      
+    tv_h = ((img[:,:,1:,:] - img[:,:,:-1,:]).pow(2)).sum()
+    tv_w = ((img[:,:,:,1:] - img[:,:,:,:-1]).pow(2)).sum()    
+    return weight * (tv_h + tv_w)
+
 
 class EDOF_CNN_fast(nn.Module):    
     def __init__(self):        
@@ -91,10 +97,10 @@ class EDOF_CNN_max(nn.Module):
         Dec = self.decoder(RS)
         return Dec
     
-    def loss(self, Yhat, Y):
-        return mse(Yhat, Y) 
- 
-#+ 1e-3 * tv_loss(Yhat.clone().detach()) + 1e-5 *ssim_loss(Yhat,Y)
+    def loss(self, Yhat, Y): 
+        return mse(Yhat, Y)
+    
+    # + ssim_loss(Yhat,Y)
 
 
 class EDOF_CNN_3D(nn.Module):    
@@ -219,6 +225,42 @@ class EDOF_CNN_backbone(nn.Module):
     def loss(self, Yhat, Y):
         return mse(Yhat, Y) 
     # + 1e-3 * tv_loss(Yhat.clone().detach())
+
+
+class EDOF_CNN_RGB(nn.Module):    
+    def __init__(self):        
+        super(EDOF_CNN_RGB, self).__init__()        
+        self.encoder = nn.Sequential(    
+            ConvLayer(3, 32, 3, 1),
+            ConvLayer(32, 64, 3, 2))
+        
+        self.residual = nn.Sequential(            
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1))
+            
+        self.decoder = nn.Sequential( 
+            DeconvLayer(64, 32, 3, 1),
+            DeconvLayer(32, 16, 3, 2, activation='relu'),
+            ConvLayer(16, 3, 1, 1, activation='linear'))
+        
+    def forward(self, XX):
+        Enc = [self.encoder(X) for X in XX]
+        input_max, max_indices= torch.min(torch.stack(Enc),dim=0,keepdim=False)
+        RS = self.residual(input_max)
+        Dec = self.decoder(RS)
+
+        return Dec
+    
+    def loss(self, Yhat, Y):
+        return mse(Yhat, Y) 
+
+
+
+
+
 
 #print parameters of models
 # model_edofmax=EDOF_CNN_max()

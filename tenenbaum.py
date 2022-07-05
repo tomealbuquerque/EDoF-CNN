@@ -9,6 +9,7 @@ import numpy as np
 import cv2 as cv
 from matplotlib import pyplot as plt
 import glob
+from skimage.metrics import structural_similarity as ssim
 
 #calculate Tenenbaum gradient
 
@@ -26,20 +27,21 @@ def Tenenbaum(img):
 
 
 
-direct=r"C:\Users\albu\Documents\GitHub\edof-cnn\test_0"
-
-
-for idx,image_name in enumerate(glob.glob(r"C:\Users\albu\Documents\GitHub\edof-cnn\test_0\*.png")):
+for idx,image_name in enumerate(glob.glob(r"C:\Users\albu\Documents\GitHub\edof-cnn\to_test_quality\*.png")):
     
     img = cv.imread(image_name,0)
+    print(image_name)
     print(Tenenbaum(img))
 
 
 
-image_name='PRED_0.png'
-img = cv.imread(image_name,0)
-print(Tenenbaum(img))
+# image_name=r'E:\DATA_SETS\data_7_stacks_fh\Focus_C313_19-pt1\x15_y30\output.jpg'
+# img = cv.imread(image_name,0)
+# print(Tenenbaum(img))
 
-image_name='GT_0.png'
-img = cv.imread(image_name,0)
-print(Tenenbaum(img))
+
+# image_name=r'E:\DATA_SETS\data_7_stacks_fh\Focus_C313_19-pt1\x15_y30\5044.jpg'
+# img1 = cv.imread(image_name,0)
+# print(Tenenbaum(img1))
+
+# print(ssim(img, img1))
