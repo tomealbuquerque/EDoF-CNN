@@ -234,6 +234,8 @@ class EDOF_CNN_RGB(nn.Module):
             ConvLayer(3, 32, 3, 1),
             ConvLayer(32, 64, 3, 2))
         
+        
+        
         self.residual = nn.Sequential(            
             ResidualLayer(64, 64, 3, 1),
             ResidualLayer(64, 64, 3, 1),
@@ -258,6 +260,47 @@ class EDOF_CNN_RGB(nn.Module):
         return mse(Yhat, Y) 
 
 
+
+class EDOF_CNN_pairwise(nn.Module):    
+    def __init__(self):        
+        super(EDOF_CNN_pairwise, self).__init__()        
+        self.encoder = nn.Sequential(    
+            ConvLayer(1, 32, 3, 1),
+            ConvLayer(32, 64, 3, 2))
+        
+        self.encoder2 = nn.Sequential(    
+            ConvLayer(64, 64, 3, 1),
+            ConvLayer(64, 64, 3, 1))
+        
+        self.residual = nn.Sequential(            
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1),
+            ResidualLayer(64, 64, 3, 1))
+            
+        self.decoder = nn.Sequential( 
+            DeconvLayer(64, 32, 3, 1),
+            DeconvLayer(32, 16, 3, 2, activation='relu'),
+            ConvLayer(16, 1, 1, 1, activation='linear'))
+        
+    def forward(self, XX):
+        Enc = [self.encoder(X) for X in XX]
+        
+        input_max0, max_indices= torch.min(torch.stack(Enc[0:1]),dim=0,keepdim=False)
+        input_max2, max_indices= torch.min(torch.stack(Enc[1:3]),dim=0,keepdim=False)
+        
+        XXX=[input_max0, input_max2]
+        
+        Enc = [self.encoder2(X) for X in XXX]
+        input_max, max_indices= torch.min(torch.stack(Enc),dim=0,keepdim=False)
+        RS = self.residual(input_max)
+        Dec = self.decoder(RS)
+
+        return Dec
+    
+    def loss(self, Yhat, Y):
+        return mse(Yhat, Y) 
 
 
 

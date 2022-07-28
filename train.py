@@ -11,9 +11,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', choices=['cervix93','fraunhofer'], default='fraunhofer')
 parser.add_argument('--image_size', choices=[512,640], default=512)
 parser.add_argument('--method', choices=[
-    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB'], default='EDOF_CNN_max')
+    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB','EDOF_CNN_pairwise'], default='EDOF_CNN_fast')
 parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=5)
-parser.add_argument('--fold', type=int, choices=range(5),default=1)
+parser.add_argument('--fold', type=int, choices=range(5),default=0)
 parser.add_argument('--epochs', type=int, default=200)
 parser.add_argument('--batchsize', type=int, default=4)
 parser.add_argument('--lr', type=float, default=1e-3)
@@ -154,12 +154,14 @@ elif args.method=='EDOF_CNN_fast':
     model = models.EDOF_CNN_fast()
 elif args.method=='EDOF_CNN_RGB':
     model = models.EDOF_CNN_RGB()
+elif args.method=='EDOF_CNN_pairwise':
+    model = models.EDOF_CNN_pairwise()
 else: 
     model = models.EDOF_CNN_concat()
 
 
 
-# model.load_state_dict(torch.load('results\\Baseline_results_without_TVL\\'+str(prefix)+'.pth'))
+model.load_state_dict(torch.load('results\\dataset-cervix93-image_size-512-method-EDOF_CNN_fast-Z-5-fold-0-epochs-200-batchsize-4-lr-0.001-cudan-1-image_channels-grayscale.pth'))
 model = model.to(device)
 
 

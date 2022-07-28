@@ -12,7 +12,7 @@ from utils_files.automatic_brightness_and_contrast import automatic_brightness_a
 
 class Dataset(Dataset):
     def __init__(self, type, transform, dataset, Z, fold):
-        self.X, self.Y = pickle.load(open(f'dataset\\data_{dataset}_zstacks_{Z}.pickle', 'rb'))[fold][type]
+        self.X, self.Y = pickle.load(open(f'dataset\\data_{dataset}.pickle', 'rb'))[fold][type]
         self.transform = transform
         self.Z = Z
     def __getitem__(self, i):
@@ -120,7 +120,7 @@ class Dataset_folder(Dataset):
 
 aug_transforms = transforms.Compose([
     transforms.ToPILImage(),
-    # transforms.Resize((512, 512)),
+    transforms.Resize((512, 512)),
     # automatic_brightness_and_contrast(clip_hist_perc=0.5),
     transforms.Grayscale(num_output_channels=1),
     transforms.ToTensor(),
@@ -130,7 +130,7 @@ aug_transforms = transforms.Compose([
 
 val_transforms = transforms.Compose([
     transforms.ToPILImage(),
-    #  transforms.Resize((512, 512)),
+    transforms.Resize((512, 512)),
     # automatic_brightness_and_contrast(clip_hist_perc=0.5),
     transforms.Grayscale(num_output_channels=1),
     transforms.ToTensor(),  # vgg normalization
@@ -140,7 +140,7 @@ val_transforms = transforms.Compose([
 
 aug_transforms_rgb = transforms.Compose([
     transforms.ToPILImage(),
-    # transforms.Resize((512, 512)),
+    transforms.Resize((512, 512)),
     # automatic_brightness_and_contrast(clip_hist_perc=0.5),
     transforms.ToTensor(),
     # vgg normalization
