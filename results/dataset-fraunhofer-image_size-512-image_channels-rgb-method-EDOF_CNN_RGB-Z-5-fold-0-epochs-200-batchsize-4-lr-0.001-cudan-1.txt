@@ -1,7 +1,0 @@
-
-
-Model:dataset-fraunhofer-image_size-512-image_channels-rgb-method-EDOF_CNN_RGB-Z-5-fold-0-epochs-200-batchsize-4-lr-0.001-cudan-1 
-MSE:0.0023526323738085456 
-RMSE:0.06499582633763655 
-SSIM:0.94912153 
-PSNR:28.741905698339814

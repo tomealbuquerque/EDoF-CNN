@@ -66,4 +66,4 @@ state = np.random.RandomState(1234)
 kfold = KFold(args.folds, shuffle=True, random_state=state)
 folds = [{'train': (X[tr], Y[tr]), 'test': (X[ts], Y[ts])} 
     for tr, ts in kfold.split(X, Y)]
-pickle.dump(folds, open(f'data_fraunhofer_zstacks.pickle', 'wb'))
+pickle.dump(folds, open(f'data_fraunhofer.pickle', 'wb'))

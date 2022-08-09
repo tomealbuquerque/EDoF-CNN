@@ -8,7 +8,7 @@ Created on Wed Apr 20 10:24:27 2022
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', choices=['cervix93','fraunhofer'], default='fraunhofer')
+parser.add_argument('--dataset', choices=['cervix93','fraunhofer','fraunhofer_separate'], default='fraunhofer_separate')
 parser.add_argument('--image_size', choices=[512,640], default=512)
 parser.add_argument('--method', choices=[
     'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB','EDOF_CNN_pairwise'], default='EDOF_CNN_fast')
@@ -161,7 +161,7 @@ else:
 
 
 
-model.load_state_dict(torch.load('results\\dataset-cervix93-image_size-512-method-EDOF_CNN_fast-Z-5-fold-0-epochs-200-batchsize-4-lr-0.001-cudan-1-image_channels-grayscale.pth'))
+# model.load_state_dict(torch.load('results\\dataset-cervix93-image_size-512-method-EDOF_CNN_fast-Z-5-fold-0-epochs-200-batchsize-4-lr-0.001-cudan-1-image_channels-grayscale.pth'))
 model = model.to(device)
 
 

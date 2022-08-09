@@ -1,7 +1,9 @@
 /dataset/data/*
 /dataset/data_fraunhofer/*
+/dataset/data_fraunhofer_separate/*
 /dataset/data_cervix93.pickle
 /dataset/data_fraunhofer.pickle
+/dataset/data_fraunhofer_separate.pickle
 __pycache__/
 results/Baseline_results_without_TVL/
 results/bright_contrast_correction/
