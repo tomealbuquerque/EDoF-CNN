@@ -7,7 +7,7 @@ from os.path import join, isdir
 
 
 
-mypath=r"E:\DATA_SETS\low_cost_microscopy_dataset\data_fraunhofer_elastic_aligned_elastic_only"
+mypath=r"E:\DATA_SETS\data_fraunhofer_no_rgb_align_elastic_aligned"
 
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 
@@ -43,7 +43,7 @@ for gd in range(len(geral_dir)):
         
         # #click on stacks stacks
         
-        pyautogui.click(893, 141)
+        pyautogui.click(893, 150)
         
         time.sleep(1) # Sleep for 3 seconds
         # #select plugins
