@@ -5,6 +5,7 @@
 /dataset/data_fraunhofer.pickle
 /dataset/data_fraunhofer_separate.pickle
 /dataset/data_fraunhofer_elastic.pickle
+/dataset/data_fraunhofer_elastic_only.pickle
 __pycache__/
 results/Baseline_results_without_TVL/
 results/bright_contrast_correction/
