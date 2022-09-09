@@ -22,7 +22,7 @@ from sklearn.model_selection import StratifiedKFold
 from utils_align import crop_microscope, alignImageChannels, alignImages
 
 # mypath=r"E:\DATA_SETS\data_5_stacks_fh"
-mypath=r"C:\Users\albu\OneDrive - Universidade do Porto\edof_articles\figuras_artigo_edof\com e sem alinhamento homografia"
+mypath=r"E:\DATA_SETS\data_fraunhofer_no_rgb_align_elastic_aligned_edof"
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 
 axis_path=[]

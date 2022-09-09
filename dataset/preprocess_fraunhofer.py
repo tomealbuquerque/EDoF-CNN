@@ -29,7 +29,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 
 
-mypath=r"E:\DATA_SETS\low_cost_microscopy_dataset\data_channel_aligned_position_static_aligned_and_elastic_aligned_edof"
+mypath=r"E:\DATA_SETS\data_fraunhofer_no_rgb_align_elastic_aligned_edof"
 
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 
@@ -75,4 +75,4 @@ state = np.random.RandomState(1234)
 kfold = KFold(args.folds, shuffle=True, random_state=state)
 folds = [{'train': (X[tr], Y[tr]), 'test': (X[ts], Y[ts])} 
     for tr, ts in kfold.split(X, Y)]
-pickle.dump(folds, open(f'data_fraunhofer_elastic.pickle', 'wb'))
+pickle.dump(folds, open(f'data_fraunhofer_no_rgb_elastic_.pickle', 'wb'))
