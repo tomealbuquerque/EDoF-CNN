@@ -1,0 +1,7 @@
+
+
+Model:dataset-fraunhofer_elastic_only-image_size-512-method-EDOF_CNN_pairwise-Z-3-fold-0-epochs-200-batchsize-6-lr-0.001-cudan-3-image_channels-grayscale 
+MSE:0.0022826433426384185 
+RMSE:0.060507641281589815 
+SSIM:0.95284927 
+PSNR:30.363204507445065

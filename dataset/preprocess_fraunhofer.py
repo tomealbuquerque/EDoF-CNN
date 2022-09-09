@@ -29,7 +29,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 
 
-mypath=f"data_fraunhofer"
+mypath=r"E:\DATA_SETS\low_cost_microscopy_dataset\data_channel_aligned_position_static_aligned_and_elastic_aligned_edof"
 
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 
@@ -48,8 +48,17 @@ for i in range(len(geral_dir)):
             img=cv2.resize(img,(args.img_size,args.img_size))
             if os.path.basename(image_name)=='Output.jpg':
                 Y_EDF.append(img)
+
             else:
                 X_STACKS.append(img)
+                
+            
+        if os.path.exists(join(path,"output.jpg")):
+            pass 
+        else:
+                print(path)
+        if join(path,"output.jpg")==[]:
+            print(path)
             
         X_stacks_full.append(X_STACKS)
         X_STACKS=[]
@@ -66,4 +75,4 @@ state = np.random.RandomState(1234)
 kfold = KFold(args.folds, shuffle=True, random_state=state)
 folds = [{'train': (X[tr], Y[tr]), 'test': (X[ts], Y[ts])} 
     for tr, ts in kfold.split(X, Y)]
-pickle.dump(folds, open(f'data_fraunhofer.pickle', 'wb'))
+pickle.dump(folds, open(f'data_fraunhofer_elastic.pickle', 'wb'))

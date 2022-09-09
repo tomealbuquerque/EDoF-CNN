@@ -1,28 +1,25 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May 28 23:48:12 2022
-
-@author: albu
-"""
-
+# =============================================================================
+# code to generate tables from results\ .txt files
+# 
+# =============================================================================
 import numpy as np
 
-# "EDOF_CNN_3D"
-for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_fast"]):
-
-    for s in ([3, 5, 7, 9]):
+for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_fast","EDOF_CNN_pairwise"]):
+    for s in ([3, 5]):
         mse=[]
         rmse=[]
         ssim=[]
         pnsr=[]
         for i in range(5):
-            text_file = open("results_server\\dataset-cervix93-image_size-640-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-200-batchsize-6-lr-0.001-cudan-1.txt", "r")
+            text_file = open("results_fraunhofer_elastic\\dataset-fraunhofer_elastic-image_size-512-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-200-batchsize-6-lr-0.001-cudan-3-image_channels-grayscale.txt", "r")
+            
+           
             lines = text_file.readlines()
             mse.append(float(lines[3].split(":")[1]))
             rmse.append(float(lines[4].split(":")[1]))
             ssim.append(float(lines[5].split(":")[1]))
             pnsr.append(float(lines[6].split(":")[1]))
-            
+           
         msem=np.mean(mse)
         rmsem=np.mean(rmse)
         ssimm=np.mean(ssim)

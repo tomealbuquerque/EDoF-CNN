@@ -41,7 +41,7 @@ def Tenenbaum(img):
 
 n_stacks=5
 
-mypath=f"E:\DATA_SETS\data_{n_stacks}_stacks_fh"
+mypath=r"E:\DATA_SETS\new_data_stacks\data_5_stacks_fh - FULL"
 
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 

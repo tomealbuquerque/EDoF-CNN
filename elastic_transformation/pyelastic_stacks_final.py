@@ -23,8 +23,8 @@ from os import listdir
 from os.path import isfile, join, isdir
 
 
-mypath=f"E:\DATA_SETS\low_cost_microscopy_dataset\data_fraunhofer"
-mypath_new=f"E:\DATA_SETS\low_cost_microscopy_dataset\data_fraunhofer_elastic_aligned"
+mypath=r"C:\Users\albu\Desktop\elastic_example"
+mypath_new=r"C:\Users\albu\Desktop\elastic_example\Elastic_aligned"
 os.makedirs(mypath_new, exist_ok=True)
 
 geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
@@ -32,6 +32,7 @@ geral_dir = [f for f in listdir(mypath) if isdir(join(mypath, f))]
 axis_path=[]
 
 for gd in range(len(geral_dir)):
+    print('folder: ', geral_dir[gd])
     axis_path=join(mypath,geral_dir[gd]) 
     axis_dir = [f for f in listdir(axis_path) if isdir(join(axis_path, f))]
     for ad in axis_dir:
@@ -61,8 +62,8 @@ for gd in range(len(geral_dir)):
         
                 # Get default params and adjust
                 params = pyelastix.get_default_params()
-                params.NumberOfResolutions = 2
-                params.MaximumNumberOfIterations = 100
+                params.NumberOfResolutions = 3
+                params.MaximumNumberOfIterations = 500
                 # print(params)
                 
                 # Register!

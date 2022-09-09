@@ -8,10 +8,10 @@ Created on Wed Apr 20 10:24:27 2022
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', choices=['cervix93','fraunhofer','fraunhofer_separate'], default='fraunhofer')
+parser.add_argument('--dataset', choices=['cervix93','fraunhofer','fraunhofer_separate','fraunhofer_elastic','fraunhofer_elastic_only'], default='fraunhofer_elastic_only')
 parser.add_argument('--image_size', choices=[512,640], default=512)
 parser.add_argument('--method', choices=[
-    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB','EDOF_CNN_pairwise'], default='EDOF_CNN_pairwise')
+    'EDOF_CNN_max','EDOF_CNN_3D','EDOF_CNN_concat','EDOF_CNN_backbone','EDOF_CNN_fast','EDOF_CNN_RGB','EDOF_CNN_pairwise'], default='EDOF_CNN_fast')
 parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=5)
 parser.add_argument('--fold', type=int, choices=range(5),default=0)
 parser.add_argument('--epochs', type=int, default=200)
@@ -139,6 +139,7 @@ def train(tr, val, epochs=args.epochs, verbose=True):
             print(out)
         scheduler.step(avg_loss)
         
+        #uncomment to see the examples
         view_images(epoch)
 
 prefix = '-'.join(f'{k}-{v}' for k, v in vars(args).items())
