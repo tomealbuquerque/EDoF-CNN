@@ -1,0 +1,7 @@
+
+
+Model:dataset-fraunhofer_no_rgb_elastic-image_size-512-method-EDOF_CNN_3D-Z-5-fold-0-epochs-200-batchsize-6-lr-0.001-image_channels-grayscale 
+MSE:0.0024793900761250483 
+RMSE:0.06485979031634131 
+SSIM:0.96015364 
+PSNR:29.273369172703386

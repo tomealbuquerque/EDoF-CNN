@@ -11,7 +11,7 @@ for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_fast","EDOF_CNN_pairwise"]):
         ssim=[]
         pnsr=[]
         for i in range(5):
-            text_file = open("results_fraunhofer_elastic\\dataset-fraunhofer_elastic-image_size-512-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-200-batchsize-6-lr-0.001-cudan-3-image_channels-grayscale.txt", "r")
+            text_file = open("results\\results_no_rgb_only_elastic\\dataset-fraunhofer_no_rgb_elastic-image_size-512-method-"+str(m)+"-Z-"+str(s)+"-fold-"+str(i)+"-epochs-200-batchsize-6-lr-0.001-image_channels-grayscale.txt", "r")
             
            
             lines = text_file.readlines()
