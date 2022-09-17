@@ -306,10 +306,13 @@ class EDOF_CNN_pairwise(nn.Module):
 
 
 #print parameters of models
-# model_edofmax=EDOF_CNN_max()
-# model_edof3d =EDOF_CNN_3D(7)
+model_edofmax=EDOF_CNN_max()
+model_edof3d =EDOF_CNN_3D(7)
+model_edoffast=EDOF_CNN_fast()
+model_edofpair=EDOF_CNN_pairwise()
 # model_edofmod =EDOF_CNN_modified()
-# print("EDOF_CNN_max: ",sum(p.numel() for p in model_edofmax.encoder.parameters())*6+sum(p.numel() for p in model_edofmax.parameters()))
-# print("EDOF_CNN_3D: ",sum(p.numel() for p in model_edof3d.parameters()))
-# print("EDOF_CNN_modified: ",sum(p.numel() for p in model_edofmod.encoder.parameters())*6+sum(p.numel() for p in model_edofmod.parameters()))
+print("EDOF_CNN_max: ",sum(p.numel() for p in model_edofmax.encoder.parameters())*6+sum(p.numel() for p in model_edofmax.parameters()))
+print("EDOF_CNN_3D: ",sum(p.numel() for p in model_edof3d.parameters()))
+print("EDOF_CNN_fast: ",sum(p.numel() for p in model_edoffast.encoder.parameters())*6+sum(p.numel() for p in model_edoffast.parameters()))
+print("EDOF_CNN_pairwise: ",sum(p.numel() for p in model_edofpair.encoder.parameters())*6+sum(p.numel() for p in model_edofpair.parameters()))
 
