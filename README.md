@@ -1,9 +1,8 @@
 # EDoF-CNN
 extended depth of field methods using CNNs for microscopy
 
-##"Rethinking Low-Cost Microscopy Workflow:
-Image Enhancement using Deep Based Extended Depth
-of Field Methods"
+## Rethinking Low-Cost Microscopy Workflow:
+## Image Enhancement using Deep Based Extended Depth of Field Methods
 
 by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos and Jaime S. Cardoso
 
