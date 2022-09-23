@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 20 10:24:27 2022
-
-@author: albu
-"""
-
+# =============================================================================
+# Code to train EDoF CNNS models
+# =============================================================================
 
 import argparse
 parser = argparse.ArgumentParser()
@@ -17,7 +13,7 @@ parser.add_argument('--fold', type=int, choices=range(5),default=0)
 parser.add_argument('--epochs', type=int, default=200)
 parser.add_argument('--batchsize', type=int, default=4)
 parser.add_argument('--lr', type=float, default=1e-3)
-parser.add_argument('--cudan', type=int, default=1)
+parser.add_argument('--cudan', type=int, default=0)
 parser.add_argument('--image_channels', choices=['rgb','grayscale'], default='grayscale')
 args = parser.parse_args()
 

@@ -1,3 +1,11 @@
+# =============================================================================
+# Code to auto-control the mouse to generate EDoF images.
+# the mouse positions must me changed accroding to the screen.
+
+# Tomé Albuquerque
+
+# =============================================================================
+
 import time
 import pyautogui
 import subprocess

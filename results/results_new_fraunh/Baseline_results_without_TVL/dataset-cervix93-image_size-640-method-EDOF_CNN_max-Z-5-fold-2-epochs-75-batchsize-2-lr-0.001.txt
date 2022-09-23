@@ -1,7 +1,0 @@
-
-
-Model:dataset-cervix93-image_size-640-method-EDOF_CNN_max-Z-5-fold-2-epochs-75-batchsize-2-lr-0.001 
-MSE:0.010047195177687417 
-RMSE:0.11257049713318118 
-SSIM:0.9565475 
-PSNR:22.586395751896536

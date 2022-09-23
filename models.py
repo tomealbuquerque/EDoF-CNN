@@ -307,7 +307,7 @@ class EDOF_CNN_pairwise(nn.Module):
 
 #print parameters of models
 model_edofmax=EDOF_CNN_max()
-model_edof3d =EDOF_CNN_3D(7)
+model_edof3d =EDOF_CNN_3D(5)
 model_edoffast=EDOF_CNN_fast()
 model_edofpair=EDOF_CNN_pairwise()
 # model_edofmod =EDOF_CNN_modified()

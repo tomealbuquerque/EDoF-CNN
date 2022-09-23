@@ -1,7 +1,0 @@
-
-
-Model:dataset-fraunhofer-image_size-512-method-EDOF_CNN_fast-Z-5-fold-0-epochs-75-batchsize-5-lr-0.001-cudan-1 
-MSE:0.002284256462710436 
-RMSE:0.060581200326160455 
-SSIM:0.9556159 
-PSNR:30.255520652433923
