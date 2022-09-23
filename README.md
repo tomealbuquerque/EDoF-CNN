@@ -4,6 +4,12 @@ extended depth of field methods using cnn
 "Rethinking Low-Cost Microscopy Workflow: A New End-to-End Strategy"
 
 
+## Usage
+
+  1. Run datasets\prepare_.....py to generate the data.
+  2. Run train.py to train the models you want.
+  3. Run evaluate.py to generate results table.
+
 
 ## Code organization
 ```
