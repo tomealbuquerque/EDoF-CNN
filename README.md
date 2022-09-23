@@ -11,9 +11,11 @@ Access to microscopic techniques in low-to-middle income countries is constraine
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/workflow.PNG" width="600">
 
 EDOF-CNN-fast schematic representation:
-<img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-fast.PNG" width="600">
+<img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-fast.PNG" width="500">
+
+
 EDOF-CNN-pairwise schematic representation:
-<img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-pairwise.PNG" width="600">
+<img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-pairwise.PNG" width="500">
 
 ## Usage
   
