@@ -1,3 +1,8 @@
+# =============================================================================
+# Utils files for the models 
+# Inspired on: https://github.com/tyui592/Perceptual_loss_for_real_time_style_transfer
+# =============================================================================
+
 import torch
 import torch.nn as nn
 
