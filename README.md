@@ -1,12 +1,18 @@
 # EDoF-CNN
-extended depth of field methods using cnn
+extended depth of field methods using CNNs for microscopy
 
-"Rethinking Low-Cost Microscopy Workflow: A New End-to-End Strategy"
+##"Rethinking Low-Cost Microscopy Workflow:
+Image Enhancement using Deep Based Extended Depth
+of Field Methods"
 
+by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos and Jaime S. Cardoso
+
+## Introduction
+Ordinal classific
 
 ## Usage
 
-  1. Run datasets\prepare_.....py to generate the data.
+  1. Run datasets\prepare_{dataset name}.py to generate the data.
   2. Run train.py to train the models you want.
   3. Run evaluate.py to generate results table.
 
