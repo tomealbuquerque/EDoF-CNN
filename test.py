@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Create folders with test stacks 
-"""
+# =============================================================================
+# Create folders with images per stack 
+# =============================================================================
 
 import argparse
 parser = argparse.ArgumentParser()

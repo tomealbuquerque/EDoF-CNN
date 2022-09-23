@@ -1,3 +1,7 @@
+# =============================================================================
+# Dataset loader for the training process
+# =============================================================================
+
 from torch.utils.data import Dataset
 from torchvision import models, transforms
 import pickle

@@ -1,7 +1,7 @@
 # =============================================================================
 # code to generate tables from results\ .txt files
-# 
 # =============================================================================
+
 import numpy as np
 
 for m in (["EDOF_CNN_max","EDOF_CNN_3D","EDOF_CNN_fast","EDOF_CNN_pairwise"]):
