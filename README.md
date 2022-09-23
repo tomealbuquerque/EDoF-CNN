@@ -67,3 +67,9 @@ EDoF-CNN
     * Cervix93 — https://github.com/parham-ap/cytology_dataset/tree/master/dataset (accessed on: 23 January 2022);
   * **train.py:** train the different models with the different datasets, z-planes, and CNN models.
   * **evaluate.py:** generate latex tables with results using the output probabilities.
+
+## Citation
+If you find this work useful for your research, please cite our paper:
+
+
+If you have any questions about our work, please do not hesitate to contact [tome.albuquerque@gmail.com](tome.albuquerque@gmail.com)
