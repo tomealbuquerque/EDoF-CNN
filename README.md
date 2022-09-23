@@ -9,10 +9,11 @@ by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos and
 Access to microscopic techniques in low-to-middle income countries is constrained by the lack of adequate equipment and trained operators. Since light microscopy delivers crucial methods for the diagnosis and screening of numerous diseases, several efforts were made by the scientific community to create low-cost devices such as 3D printed portable microscopes. Nevertheless, these types of devices present some drawbacks: the capture of the samples is done by a mobile phone and the low quality of the mechanical parts can influence the alignment of the slides. Also the captured image used for the diagnostic has a very limited depth-of-field. Thus, to tackle all the presented issues several pre-processing methods are tested and a new workflow is proposed. Two new deep learning models based on Convolutional Neural Networks are also proposed (EDoF-CNN-fast and EDoF-CNN-pairwise) to generate Extended Depth-of-Field (EDoF or EDF) images which are compared against state-of-the-art approaches. The models were tested using two different datasets: Cervix93 and a private dataset from Fraunhofer Portugal AICOS contaning cytology miscrocopic images captured on $\mu$SmartScope. Experimental results demonstrate that the proposed workflow can achieve state-of-the-art performance when generating EdoF images from low-cost microscopes. The computational speed of the proposed workflow is fast enough for real-time clinical usage.
 
 ## Usage
-
-  1. Run datasets\prepare_{dataset name}.py to generate the data.
-  2. Run train.py to train the models you want.
-  3. Run evaluate.py to generate results table.
+  
+  1. Run the aligment method (Chromatic/Rigid/elastic) if your dataset is misaligned.
+  2. Run datasets\prepare_{dataset name}.py to generate the data.
+  3. Run train.py to train the models you want.
+  4. Run evaluate.py to generate results table.
 
 
 ## Code organization
@@ -62,3 +63,7 @@ EDoF-CNN
    └─ pytorch_ssim
       └─ __init__.py
 ```
+  * **data:** Just one dataset is publicly available: 
+    * Cervix93 — https://github.com/parham-ap/cytology_dataset/tree/master/dataset (accessed on: 23 January 2022);
+  * **train.py:** train the different models with the different datasets, z-planes, and CNN models.
+  * **evaluate.py:** generate latex tables with results using the output probabilities.
