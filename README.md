@@ -1,5 +1,4 @@
 # EDoF-CNN
-extended depth of field methods using CNNs for microscopy
 
 ### Rethinking Low-Cost Microscopy Workflow: Image Enhancement using Deep Based Extended Depth of Field Methods
 
