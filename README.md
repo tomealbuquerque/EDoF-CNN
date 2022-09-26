@@ -11,6 +11,11 @@ by the lack of adequate equipment and trained operators. Since light microscopy 
 Tested preprocessing **workflows**:<br />
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/workflow.PNG" width="600">
 
+
+Rigid Aligment             |  Elastic Alignment
+:-------------------------:|:-------------------------:
+![](https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/rigid.gif)  |  ![](https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/elastic.gif)
+
 **EDOF-CNN-fast** schematic representation:<br />
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-fast.PNG" width="500">
 
