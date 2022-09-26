@@ -10,11 +10,11 @@ by the lack of adequate equipment and trained operators. Since light microscopy 
 
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/workflow.PNG" width="600">
 
-EDOF-CNN-fast schematic representation:<br />
+**EDOF-CNN-fast** schematic representation:<br />
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-fast.PNG" width="500">
 
 
-EDOF-CNN-pairwise schematic representation:<br />
+**EDOF-CNN-pairwise** schematic representation:<br />
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/EDoF-CNN-pairwise.PNG" width="500">
 
 ## Usage
