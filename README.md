@@ -11,7 +11,7 @@ by the lack of adequate equipment and trained operators. Since light microscopy 
 Tested preprocessing **workflows**:<br />
 <img src="https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/workflow.PNG" width="600">
 
-Comparasion between rigid and elastic aligment across an entire stack (motion image):<br />
+Comparison between rigid and elastic aligment across an entire stack (motion image):<br />
 Rigid Aligment             |  Elastic Alignment
 :-------------------------:|:-------------------------:
 ![](https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/rigid.gif)  |  ![](https://github.com/tomealbuquerque/EDoF-CNN/blob/main/figures/elastic.gif)
