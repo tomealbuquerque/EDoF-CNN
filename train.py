@@ -11,7 +11,7 @@ parser.add_argument('--method', choices=[
 parser.add_argument('--Z', choices=[3,5,7,9], type=int, default=5)
 parser.add_argument('--fold', type=int, choices=range(5),default=0)
 parser.add_argument('--epochs', type=int, default=200)
-parser.add_argument('--batchsize', type=int, default=4)
+parser.add_argument('--batchsize', type=int, default=6)
 parser.add_argument('--lr', type=float, default=1e-3)
 parser.add_argument('--cudan', type=int, default=0)
 parser.add_argument('--image_channels', choices=['rgb','grayscale'], default='grayscale')
@@ -167,7 +167,7 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(opt, verbose=True,patience=5)
 train(tr, ts)
 
 
-torch.save(model.state_dict(), 'results\\'+str(prefix)+'.pth')
+torch.save(model.state_dict(), str(prefix)+'.pth')
 
    
 #print some metrics 
