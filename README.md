@@ -2,7 +2,7 @@
 
 ### Rethinking Low-Cost Microscopy Workflow: Image Enhancement using Deep Based Extended Depth of Field Methods
 
-by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos and Jaime S. Cardoso
+by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos, Tiago Oliveira and Jaime S. Cardoso
 
 ## Introduction
 Microscopic techniques in low-to-middle income countries are constrained
