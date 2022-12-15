@@ -78,7 +78,7 @@ EDoF-CNN
    └─ pytorch_ssim
       └─ __init__.py
 ```
-  * **data:** Just one dataset is publicly available: 
+  * **data:**
     * Cervix93 — https://github.com/parham-ap/cytology_dataset/tree/master/dataset (accessed on: 23 January 2022);
   * **train.py:** train the different models with the different datasets, z-planes, and CNN models.
   * **evaluate.py:** generate latex tables with results using the output probabilities.
