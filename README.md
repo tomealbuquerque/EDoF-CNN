@@ -4,6 +4,8 @@
 
 by Tomé Albuquerque, Luís Rosado, Ricardo Cruz, Maria João M. Vasconcelos, Tiago Oliveira and Jaime S. Cardoso
 
+https://doi.org/10.1016/j.iswa.2022.200170
+
 ## Introduction
 Microscopic techniques in low-to-middle income countries are constrained
 by the lack of adequate equipment and trained operators. Since light microscopy delivers crucial methods for the diagnosis and screening of numerous diseases, several efforts were made by the scientific community to create low-cost devices such as 3D-printed portable microscopes. Nevertheless, these types of devices present some drawbacks that directly affect image quality: the capture of the samples is done via mobile phones; more affordable lenses are usually used, leading to lower physical properties and images with lower depth-of-field; misalignments in the microscopic set-up regarding optical, mechanical, and illumination components are frequent, causing image distortions like chromatic aberrations. This work explores several pre-processing methods to tackle the presented issues, and a new workflow for low-cost microscopy is proposed. Additionally, two new deep learning models based on Convolutional Neural Networks are also proposed (EDoF-CNN-fast and EDoF-CNN-pairwise) to generate Extended Depth-of-Field (EDoF or EDF) images, being compared against state-of-the-art approaches. The models were tested using two different datasets: Cervix93 and a private dataset of cytology microscopic images captured with the µSmartScope device. Experimental results demonstrate that the proposed workflow can achieve state-of-the-art performance when generating EdoF images from low-cost microscopes.
