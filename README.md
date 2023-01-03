@@ -80,11 +80,23 @@ EDoF-CNN
 ```
   * **data:**
     * Cervix93 — https://github.com/parham-ap/cytology_dataset/tree/master/dataset (accessed on: 23 January 2022);
+    * Fraunhofer EDoF dataset - 10.5281/zenodo.7473277
   * **train.py:** train the different models with the different datasets, z-planes, and CNN models.
   * **evaluate.py:** generate latex tables with results using the output probabilities.
 
 ## Citation
 If you find this work useful for your research, please cite our paper:
+@article{ALBUQUERQUE2023200170,
+title = {Rethinking Low-Cost Microscopy Workflow: Image Enhancement using Deep Based Extended Depth of Field Methods},
+journal = {Intelligent Systems with Applications},
+pages = {200170},
+year = {2023},
+issn = {2667-3053},
+doi = {https://doi.org/10.1016/j.iswa.2022.200170},
+url = {https://www.sciencedirect.com/science/article/pii/S2667305322001077},
+author = {Tomé Albuquerque and Luís Rosado and Ricardo Cruz and Maria João M. Vasconcelos and Tiago Oliveira and Jaime S. Cardoso},
+keywords = {Extended Depth of Field, CNN, Microscopy workflow, Mobile health, Cervical cytology}
+}
 
 
 If you have any questions about our work, please do not hesitate to contact [tome.albuquerque@gmail.com](tome.albuquerque@gmail.com)
