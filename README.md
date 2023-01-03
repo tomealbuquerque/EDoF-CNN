@@ -88,6 +88,7 @@ EDoF-CNN
 
 ## Citation
 If you find this work useful for your research, please cite our paper:
+```
 @article{ALBUQUERQUE2023200170,
 title = {Rethinking Low-Cost Microscopy Workflow: Image Enhancement using Deep Based Extended Depth of Field Methods},
 journal = {Intelligent Systems with Applications},
@@ -99,6 +100,6 @@ url = {https://www.sciencedirect.com/science/article/pii/S2667305322001077},
 author = {Tomé Albuquerque and Luís Rosado and Ricardo Cruz and Maria João M. Vasconcelos and Tiago Oliveira and Jaime S. Cardoso},
 keywords = {Extended Depth of Field, CNN, Microscopy workflow, Mobile health, Cervical cytology}
 }
-
+```
 
 If you have any questions about our work, please do not hesitate to contact [tome.albuquerque@gmail.com](tome.albuquerque@gmail.com)
