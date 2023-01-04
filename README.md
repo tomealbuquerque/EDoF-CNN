@@ -82,7 +82,7 @@ EDoF-CNN
 ```
   * **data:**
     * Cervix93 — https://github.com/parham-ap/cytology_dataset/tree/master/dataset (accessed on: 23 January 2022);
-    * Fraunhofer EDoF dataset -  https://10.5281/zenodo.7473277
+    * Fraunhofer EDoF dataset -  https://doi.org/10.5281/zenodo.7473277
   * **train.py:** train the different models with the different datasets, z-planes, and CNN models.
   * **evaluate.py:** generate latex tables with results using the output probabilities.
 
